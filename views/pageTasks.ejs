@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <main>
+            <div>
+                <h1>My Tasks: <%=today%></h1>
+                <ol>
+                    <% tasks.forEach( (t)=> { %>
+                        <li><%= t.text %></li>
+                    <% }) %>
+                </ol>
+                <form method="post" action="/tasks">
+                    <input type="text" name="text">
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

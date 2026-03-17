@@ -5,7 +5,13 @@ const routerTasks = express.Router()
 const tasks = require('../data/task')
 
 routerTasks.get('/', (req,res)=>{
-    res.send(tasks)
+    res.render('pageTasks', 
+        {
+        today: '17/03/2026',
+        tasks: tasks
+        }
+    )//Para usar plantilla, 
+    // render('Nombre de plantilla',{obj}->para enviar info en la plantilla
 })
 
 routerTasks.post('/', (req,res)=>{
@@ -17,7 +23,8 @@ routerTasks.post('/', (req,res)=>{
             text: text
         }
     )
-    res.send("OK")
+    //Despues de insertar las tareas hace una renavegacion
+    res.redirect('/tasks')
 })
 
 
